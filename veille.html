@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="aussi.css" />    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mapping.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script>
+        function copyCode() {
+            var codeBlock = document.getElementById('code-block').innerText;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                alert('Code copié dans le presse-papiers!');
+            }, function(err) {
+                console.error('Échec de la copie : ', err);
+            });
+        }
+    </script>
+    <title>Veille - Portfolio | Mathys CHERUEL</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <a href="./mapping.html" class="logo">E4</a>
+        <nav class="navBar">
+          <a href="./index.html" class="active">home</a>
+          <div class="bx bx-x icon" id="closeIcon"></div>
+        </nav>
+        <div class="icons">
+          <div class="bx bx-grid-alt icon" id="menuIcon"></div>
+          <div class="bx bx-moon icon" id="themeIcon"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Corps -->
+    
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <a href="https://www.pagesjaunes.fr/annuaireinverse/recherche?quoiqui=0630548497&univers=annuaireinverse&idOu=" class="link">+33630548497</a>
+        <div class="socials">
+          <a
+            href="https://github.com/MathysCheruel"
+            class="bx bxl-github"
+            target="_blank"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/mathys-cheruel-2aa6b026a/"
+            class="bx bxl-linkedin"
+            target="_blank"
+          ></a>
+        </div>
+        <p class="copyrights">
+          &copy; 2024
+          <a class="link" target="_blank"
+            >Cheruel Mathys</a
+          >
+          Inc. All rights reserved.
+        </p>
+      </div>
+      <a href="#" class="bx bx-chevron-up icon back" title="Back to Top"></a>
+    </footer>
+
+  </body>
+</html>

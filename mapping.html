@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="aussi.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mapping.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script>
+        function copyCode() {
+            var codeBlock = document.getElementById('code-block').innerText;
+            navigator.clipboard.writeText(codeBlock).then(function() {
+                alert('Code copié dans le presse-papiers!');
+            }, function(err) {
+                console.error('Échec du copier : ', err);
+            });
+        }
+    </script>
+    <title>Mapping - Portfolio | Mathys CHERUEL</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <a href="./mapping.html" class="logo">E4</a>
+        <nav class="navBar">
+          <a href="./index.html" class="active">home</a>
+          <div class="bx bx-x icon" id="closeIcon"></div>
+        </nav>
+        <div class="icons">
+          <div class="bx bx-grid-alt icon" id="menuIcon"></div>
+          <div class="bx bx-moon icon" id="themeIcon"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Code Presentation -->
+
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode()">Copier le code</button>
+            <pre>
+                <code id="code-block" class="language-html">
+             
+                    package MAC_Mapping;
+
+                    import java.io.BufferedReader;
+                    import java.io.File;
+                    import java.io.FileInputStream;
+                    import java.io.FileNotFoundException;
+                    import java.io.IOException;
+                    import java.io.InputStreamReader;
+                    
+                    public class AvancementMappingMAC {
+                        
+                        public static void main(String[] args) {
+                            
+                            String sPath = "C://BTS//Mapping//";
+                    
+                            String sCheminFichierQR = sPath + "QR.csv";
+                            File fileQR = new File(sCheminFichierQR);
+                            String sLigneQR;
+                            String[] sVirSplit;
+                    
+                            String sCheminFichierSegment = sPath + "PivotSegmentQuestion.csv"; // Cible
+                            File fileSegment = new File(sCheminFichierSegment);
+                            String sLigneSegment;
+                            String[] sVirSplitS;
+                    
+                            String sCheminFichierSegmentNcl = sPath + "PivotSegmentQuestionNCL.csv"; // Source
+                            File fileSegmentNcl = new File(sCheminFichierSegmentNcl);
+                            String sLigneSegmentNcl;
+                            String[] sVirSplitSNcl;
+                            
+                            try {
+                                
+                                FileInputStream fisQR = new FileInputStream(fileQR);
+                                InputStreamReader isrQR = new InputStreamReader(fisQR);
+                                BufferedReader bfQR = new BufferedReader(isrQR);
+                                
+                                FileInputStream fisSegment = new FileInputStream(fileSegment);
+                                InputStreamReader isrSegment = new InputStreamReader(fisSegment);
+                                BufferedReader bfSegment = new BufferedReader(isrSegment);
+                                
+                                FileInputStream fisQuestionNcl = new FileInputStream(fileSegmentNcl);
+                                InputStreamReader isrQuestionNcl = new InputStreamReader(fisQuestionNcl);
+                                BufferedReader bfQuestionNcl = new BufferedReader(isrQuestionNcl);
+                                
+                                // d-Mapping_V2
+                                while ((sLigneQR = bfQR.readLine()) != null) { //Qrs
+                    
+                                    // Lire QR //
+                                    sVirSplit = sLigneQR.split(";");
+                                    String sQR = sVirSplit[1];
+                    
+                                    while ((sLigneSegment = bfSegment.readLine()) != null) { //Privotsegmentquestions
+                    
+                                        // Lire PivotSegmentQuestions //
+                                        sVirSplitS = sLigneSegment.split(";");
+                                        String sCible = sVirSplitS[1];
+                                        String sSegment = sVirSplitS[3];
+                                        int Position = 0;
+                                        sSegment = sSegment.substring(0,Position) + sSegment.substring(Position+1);
+                                        String sPositionChamp = sVirSplitS[5];
+                    
+                                        if("1"=="1") {
+                    
+                                            // Passer à la suite //
+                    
+                                            while ((sLigneSegmentNcl = bfQuestionNcl.readLine()) != null) { //Privotsegmentquestionncls
+                    
+                                                // Lire PivotSegmentsQuestionsNcl //
+                                                sVirSplitSNcl = sLigneSegmentNcl.split(";");
+                                                String sQuestionNcl = sVirSplitSNcl[1];
+                                                
+                                                /// Recuperation Segment - PositionChamp ///
+                            
+                                                String sSegmentNcl = sVirSplitSNcl[3];
+                                                int PositionSegmentNcl = 0;
+                                                sSegmentNcl = sSegmentNcl.substring(0,PositionSegmentNcl) + sSegmentNcl.substring(PositionSegmentNcl+1);
+                                                String sSegmentNcl2 = sSegmentNcl;
+                                                int PositionSegmentNcl2 = 0;
+                                                sSegmentNcl2 = sSegmentNcl2.substring(0,PositionSegmentNcl2) + sSegmentNcl2.substring(PositionSegmentNcl2+1);
+                                                System.out.println("SegmentNcl : " + sSegmentNcl2);
+                                            
+                                                String sPositionChampNcl = sVirSplitSNcl[5];
+                                                System.out.println("PositionChampNcl : " + sPositionChampNcl);
+                                                
+                                                if(sCible == sQuestionNcl && sSegment == sSegmentNcl && sPositionChamp == sPositionChampNcl) {
+                    
+                                                    // Passer à la suite //
+                    
+                                                    if(fileSegmentNcl.exists() == true) { //Noter correct
+                    
+                                                        System.out.println("ZZzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+                                                        
+                                                    }
+                                                    else { // Retourner erreur
+                    
+                    
+                                                    }
+                                                    // f-comparer
+                                                }
+                                                // f-Privotsegmentquestionncls
+                                            }
+                                            // i-lire NCL
+                                            if(fileSegmentNcl.exists() == false) { //Signaler pas pivot ncl
+                    
+                    
+                                            }
+                                            // f-lire NCL
+                                        }
+                                        // f-Privotsegmentquestions
+                                    }
+                                    // i-Qrs
+                                    if(fileSegment.exists() == false) { //signaler pas pivot
+                    
+                    
+                                    }
+                                    // f-Qrs
+                                }
+                                // f-Mapping_V2
+                                
+                            
+                                } catch (FileNotFoundException ex) {
+                                        
+                                        throw new RuntimeException("[Erreur technique] : " + ex.getMessage());
+                                        
+                                } catch (IOException e) {
+                                        
+                                        e.printStackTrace();
+                                        
+                                }
+                        }
+                    }
+            </code>
+        </pre>
+    </div>
+    
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <a href="https://www.pagesjaunes.fr/annuaireinverse/recherche?quoiqui=0630548497&univers=annuaireinverse&idOu=" class="link">+33630548497</a>
+        <div class="socials">
+          <a
+            href="https://github.com/MathysCheruel"
+            class="bx bxl-github"
+            target="_blank"
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/mathys-cheruel-2aa6b026a/"
+            class="bx bxl-linkedin"
+            target="_blank"
+          ></a>
+        </div>
+        <p class="copyrights">
+          &copy; 2024
+          <a class="link" target="_blank"
+            >Cheruel Mathys</a
+          >
+          Inc. All rights reserved.
+        </p>
+      </div>
+      <a href="#" class="bx bx-chevron-up icon back" title="Back to Top"></a>
+    </footer>
+
+    <!-- swiper bundle js -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
