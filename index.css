@@ -187,6 +187,7 @@ header.active{
     align-items: center;
     justify-content: center;
     gap: .8rem;
+    
 }
 
 .header #menuIcon{
@@ -594,10 +595,6 @@ header.active{
 }
 
 /* Compétences */
-
-.services{
-    
-}
 
 .services h2{
     text-transform: capitalize;
