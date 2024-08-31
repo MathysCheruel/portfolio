@@ -924,6 +924,9 @@ header.active{
     .contact .form > div{
         flex-direction: column;
     }
+    .certificates .box_container{
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -957,5 +960,8 @@ header.active{
     
     .offer .box_container{
         grid-template-columns: 1fr;
+    }
+    .certificates .box_container .box{
+        margin-bottom: 500px;
     }
 }

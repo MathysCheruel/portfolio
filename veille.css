@@ -247,6 +247,10 @@ header.active{
     min-height: 50vh;
 }
 
+.about .heading{
+    margin-bottom: 2rem;
+}
+
 .about .container .box_container{
     display: flex;
     justify-content: center;
@@ -287,8 +291,6 @@ header.active{
     font-weight: 600;
     font-size: 1.2rem;
 }
-
-
 
 /* footer */
 
